@@ -3,7 +3,7 @@ import GhostContentAPI from '@tryghost/content-api'
 const api = new GhostContentAPI({
     url: 'https://blog.ubumaths.net',
     key: '8f04d2c9a197a6c0097316afd5',
-    version: "v4"
+    version: "v3"
   });
 
 export async function get() {
@@ -12,7 +12,7 @@ export async function get() {
   
  
     // const data = await res.json();
-    console.log(res)
+    // console.log(res)
 
     return { body: JSON.stringify(res) };
     // return { body: data };
