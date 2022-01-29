@@ -34,19 +34,4 @@
 </Button>
 {@html markup}
 
-<img src="https://blog.ubumaths.net/content/images/2022/01/Untitled--9--1.jpg"
-        class="kg-image" alt loading="lazy" 
-        srcset="https://blog.ubumaths.net/content/images/size/w600/2022/01/Untitled--9--1.jpg 600w,
-        https://blog.ubumaths.net/content/images/size/w1000/2022/01/Untitled--9--1.jpg 1000w,
-        https://blog.ubumaths.net/content/images/size/w1600/2022/01/Untitled--9--1.jpg 1600w,
-        https://blog.ubumaths.net/content/images/size/w2400/2022/01/Untitled--9--1.jpg 2400w" sizes="(min-width:
-        720px) 720px">
 
-{#each posts as post}
-	<div
-		class=''
-	>
-		<h4 class="font-bold">{post.title}</h4>
-		{@html post.html}
-	</div>
-{/each}
