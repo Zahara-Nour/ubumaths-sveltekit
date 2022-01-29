@@ -35,7 +35,7 @@
 	let secondaryColor = false
 	let miniWindow = false
 	let showDrawer = false
-	const setMiniWindow = () => (miniWindow = window.innerWidth < 600)
+	const setMiniWindow = () => (miniWindow = window.innerWidth < 720)
 	const toggleDrawer = () => {
 		showDrawer = !showDrawer
 	}
@@ -47,6 +47,8 @@
 	}
 
 	const changeRoute = (route) => goto(route)
+
+	setMiniWindow()
 </script>
 
 <svelte:window on:resize="{setMiniWindow}" />
