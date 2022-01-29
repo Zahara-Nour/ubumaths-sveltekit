@@ -5,6 +5,7 @@
 	import Button, { Label } from '@smui/button';
 	import List, { Item, Text, Graphic, Separator, Subheader } from '@smui/list';
 	import { H6 } from '@smui/common/elements';
+	import { darkmode } from '../lib/stores';
 
 	let active = 'Inbox';
 	let prominent = false;
@@ -16,16 +17,24 @@
 	const toggleDrawer = () => {
 		showDrawer = !showDrawer;
 	};
+	const switchTheme = () => darkmode.update((mode) => !mode);
 
 	function setActive(value) {
 		active = value;
 		showDrawer = false;
 	}
 
-	$: console.log('drawer', showDrawer)
+	$: console.log('theme', $darkmode);
 </script>
 
 <svelte:window on:resize={setMiniWindow} />
+<svelte:head>
+	{#if $darkmode}
+		<link rel="stylesheet" href="/smui-dark.css" />
+	{:else}
+		<link rel="stylesheet" href="/smui.css" />
+	{/if}
+</svelte:head>
 
 <Drawer variant="modal" bind:open={showDrawer}>
 	<Header>
@@ -107,7 +116,15 @@
 			<Section align="end" toolbar>
 				<IconButton class="material-icons" aria-label="Download">file_download</IconButton>
 				<IconButton class="material-icons" aria-label="Print this page">print</IconButton>
-				<IconButton class="material-icons" aria-label="Bookmark this page">bookmark</IconButton>
+				{#if $darkmode}
+					<IconButton class="material-icons" aria-label="Bookmark this page" on:click={switchTheme}
+						>light_mode</IconButton
+					>
+				{:else}
+					<IconButton class="material-icons" aria-label="Bookmark this page" on:click={switchTheme}
+						>dark_mode</IconButton
+					>
+				{/if}
 				{#if miniWindow}
 					<IconButton on:click={toggleDrawer} class="material-icons">menu</IconButton>
 				{/if}
