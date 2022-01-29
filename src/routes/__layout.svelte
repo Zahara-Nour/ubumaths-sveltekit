@@ -35,7 +35,7 @@
 	let secondaryColor = false
 	let miniWindow = false
 	let showDrawer = false
-	const setMiniWindow = () => (miniWindow = window.innerWidth < 720)
+	const setMiniWindow = () => (miniWindow = window.innerWidth < 600)
 	const toggleDrawer = () => {
 		showDrawer = !showDrawer
 	}
