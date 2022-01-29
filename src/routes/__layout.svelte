@@ -27,6 +27,7 @@
 	import { H6 } from '@smui/common/elements'
 	import { darkmode } from '../lib/stores'
 	import { goto } from '$app/navigation'
+	import { onMount } from 'svelte'
 
 	export let tags
 	let active = 'Inbox'
@@ -48,7 +49,7 @@
 
 	const changeRoute = (route) => goto(route)
 
-	setMiniWindow()
+	onMount(() => setMiniWindow())
 </script>
 
 <svelte:window on:resize="{setMiniWindow}" />
